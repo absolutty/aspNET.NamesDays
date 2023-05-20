@@ -1,12 +1,13 @@
 ﻿using System.Collections;
+using System.Text.RegularExpressions;
 
 namespace Library;
 
 public record NamedayCalendar : IEnumerable<Nameday>
 {
     private Dictionary<DayMonth, List<Nameday>> _namedays = null!;
-    public int NameCount => _namedays.Values.Sum(listOfNamedays => listOfNamedays.Count);
-    public int DayCount => _namedays.Values.Count(listOfNamedays => listOfNamedays.Count > 0);
+    public int NameCount => _namedays?.Values.Sum(listOfNamedays => listOfNamedays.Count) ?? 0;
+    public int DayCount => _namedays?.Values.Count(listOfNamedays => listOfNamedays.Any()) ?? 0;
     
     /// <summary>
     /// Gets the <see cref="DayMonth"/> associated with the specified name.
@@ -109,12 +110,11 @@ public record NamedayCalendar : IEnumerable<Nameday>
     /// <returns>An enumerable collection of Nameday objects matching the specified pattern.</returns>
     public IEnumerable<Nameday> GetNamedays(string pattern)
     {
-        pattern = pattern.ToLower();
         foreach (var namedaysList in _namedays.Values)
         {
             foreach (var nameday in namedaysList)
             {
-                if (nameday.Name.ToLower().Contains(pattern))
+                if (Regex.IsMatch(nameday.Name.ToLower(), pattern))
                 {
                     yield return nameday;
                 }
