@@ -68,7 +68,7 @@
         /// <returns>A string representation of the object.</returns>
         public override string ToString()
         {
-            return $"[Day: {Day}, Month: {Month}, DateTime: {ToDateTime()} ]";
+            return $"{Day}.{Month}";
         }
     }
 }
