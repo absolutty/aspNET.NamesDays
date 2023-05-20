@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+    
+    <data name="menu.title" xml:space="preserve">
+        <value>KALENDÁR MIEN</value>
+    </data>
+    <data name="menu.namedaynone" xml:space="preserve">
+        <value>nemá nikto meniny</value>
+    </data>
+    <data name="menu.options" xml:space="preserve">
+        <value>Menu
+    1 - načítať kalendár
+    2 - zobraziť štatistiku
+    3 - vyhľadať mená
+    4 - vyhľadať mená podľa dátumu
+    5 - zobraziť kalendár mien v mesiaci
+    6 | Escape - koniec
+Vaša voľba: </value>
+    </data>
+    <data name="menu.end" xml:space="preserve">
+        <value>Pre pokračovanie stlačte Enter.</value>
+    </data>
+    
+    <data name="load.title" xml:space="preserve">
+        <value>OTVORENIE</value>
+    </data>
+    <data name="load.text">
+<value>Zadajte cestu k súboru kalendára mien alebo stlačte Enter pre ukončenie.
+    Zadajte cestu k CSV súboru: </value>
+    </data>
+    <data name="load.notFound" xml:space="preserve">
+        <value>Zadaný súbor {0} neexistuje!</value>
+    </data>
+    <data name="load.wrongFormat" xml:space="preserve">
+        <value>Zadaný súbor {0} nie je typu CSV!</value>
+    </data>
+    <data name="load.success" xml:space="preserve">
+        <value>Súbor kalendára bol načítaný.</value>
+    </data>
+
+    <data name="statistics.title" xml:space="preserve">
+        <value>ŠTATISTIKA</value>
+    </data>
+    <data name="statistics.nOfNames" xml:space="preserve">
+        <value>Celkový počet mien v kalendári: </value>
+    </data>
+    <data name="statistics.dayWithNames" xml:space="preserve">
+        <value>Celkový počet dní obsahujúci mená v kalendári: </value>
+    </data>
+    <data name="statistics.nOfNamesInMonths" xml:space="preserve">
+        <value>Celkový počet mien v jednotlivých mesiacoch: </value>
+    </data>
+    <data name="statistics.nOfNamesBeginLetter" xml:space="preserve">
+        <value>Počet mien podľa začiatočných písmen: </value>
+    </data>
+    <data name="statistics.nOfNamesStringLength" xml:space="preserve">
+        <value>Počet mien podľa dĺžky znakov: </value>
+    </data>
+
+    <data name="searchRegex.title" xml:space="preserve">
+        <value>VYHĽADAVANIE MIEN</value>
+    </data>
+    <data name="searchRegex.input" xml:space="preserve">
+        <value>Zadajte meno (regulárny výraz): </value>
+    </data>
+
+    <data name="searchDate.title" xml:space="preserve">
+        <value>VYHĽADAVANIE MIEN PODĽA DÁTUMU</value>
+    </data>
+    <data name="searchDate.input" xml:space="preserve">
+        <value>Zadajte deň a mesiac: </value>
+    </data>
+    
+    <data name="calendar.title" xml:space="preserve">
+        <value>KALENDÁR MENÍN</value>
+    </data>
+    <data name="calendar.caption" xml:space="preserve">
+        <value>Sipka dolava / doprava - mesiac dozadu / dopredu.
+Sipka dole / hore - rok dozadu / dopredu
+Klaves Home alebo D - aktuilny den.</value>
+    </data>
+    
+</root>
