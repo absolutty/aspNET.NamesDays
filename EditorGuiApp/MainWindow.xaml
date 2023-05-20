@@ -1,12 +1,30 @@
 ﻿<Window x:Class="EditorGuiApp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:EditorGuiApp"
-        mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
 
-    </Grid>
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/res/strings/Strings.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+    
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="{StaticResource File}">
+                <MenuItem Header="{StaticResource File.New}" />
+                <MenuItem Header="{StaticResource File.Open}" />
+                <MenuItem Header="{StaticResource File.SaveAs}" />
+                <Separator />
+                <MenuItem Header="{StaticResource File.Exit}" />
+            </MenuItem>
+            <MenuItem Header="{StaticResource Help}">
+                <MenuItem Header="{StaticResource Help.About}" />
+            </MenuItem>
+        </Menu>
+        <TextBox AcceptsReturn="True" />
+    </DockPanel>
+
 </Window>
