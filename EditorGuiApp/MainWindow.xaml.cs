@@ -10,20 +10,20 @@ using Calendar = System.Windows.Controls.Calendar;
 
 namespace EditorGuiApp
 {
-    public partial class MainWindow : Window, INotifyPropertyChanged
+    public partial class MainWindow : INotifyPropertyChanged
     {
         private NamedayCalendar _calendar;
-        public ObservableCollection<Nameday> Namedays { get; set; }
+        public ObservableCollection<Nameday> Namedays { get; set; } = null!;
         private DateTime _selectedDateTime;
-        private string _textBoxContent;
-        private ObservableCollection<string> _comboBoxItems;
+        private string _textBoxContent = null!;
+        private ObservableCollection<string> _comboBoxItems = null!;
         public event PropertyChangedEventHandler? PropertyChanged;
 
         private void ComboBoxSelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             if (sender is ComboBox comboBox)
             {
-                string selectedMonth = comboBox.SelectedItem as string;
+                string? selectedMonth = comboBox.SelectedItem as string;
                 if (selectedMonth != null)
                 {
                     int monthIndex = GetMonthIndex(selectedMonth);
@@ -32,7 +32,7 @@ namespace EditorGuiApp
             }
         }
 
-        private int GetMonthIndex(string monthName)
+        private int GetMonthIndex(string? monthName)
         {
             var dateTimeFormatInfo = CultureInfo.CurrentCulture.DateTimeFormat;
             return Array.IndexOf(dateTimeFormatInfo.MonthNames, monthName) + 1;

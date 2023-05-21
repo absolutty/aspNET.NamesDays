@@ -26,7 +26,7 @@ public class ConsoleApp
             DayMonth toBeUsedDaymonth = new DayMonth(toBeUsedDatetime.Day, toBeUsedDatetime.Month);
 
             string? nameDays = _calendar[toBeUsedDaymonth].ToString();
-            Console.WriteLine($@"Dnes meniny {toBeUsedDatetime.ToString("dd.M.yyyy")} {(nameDays.Length > 0 ? string.Join(", ", _calendar[toBeUsedDaymonth]) : _resourceManager.GetString("menu.namedaynone"))}");
+            Console.WriteLine($@"Dnes meniny {toBeUsedDatetime.ToString("dd.M.yyyy")} {(nameDays!.Length > 0 ? string.Join(", ", _calendar[toBeUsedDaymonth]) : _resourceManager.GetString("menu.namedaynone"))}");
             
             toBeUsedDatetime = DateTime.Today.AddDays(1);
             toBeUsedDaymonth = new DayMonth(toBeUsedDatetime.Day, toBeUsedDatetime.Month);
@@ -293,14 +293,12 @@ public class ConsoleApp
         }
     }
     
-    private bool WantToEndAccept()
+    private void WantToEndAccept()
     {
         Console.WriteLine(_resourceManager.GetString("menu.end"));
         
         bool wantToEnd = Console.ReadKey().Key == ConsoleKey.Enter;
         Console.Clear();
-        
-        return wantToEnd;
     }
     
 }
