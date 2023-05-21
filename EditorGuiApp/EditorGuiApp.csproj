@@ -11,4 +11,10 @@
       <ProjectReference Include="..\Library\Library.csproj" />
     </ItemGroup>
 
+    <ItemGroup>
+      <None Update="res\csv\toBeLoaded.csv">
+        <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+      </None>
+    </ItemGroup>
+
 </Project>
