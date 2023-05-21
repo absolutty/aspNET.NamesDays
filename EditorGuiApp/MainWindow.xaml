@@ -1,0 +1,118 @@
+﻿<Window x:Class="EditorGuiApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:editorGuiApp="clr-namespace:EditorGuiApp"
+        xmlns:converters="clr-namespace:EditorGuiApp"
+        Title="MainWindow" MinHeight="380" Height="380" MinWidth="650" Width="650">
+
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="/res/strings/Strings.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+            
+            <converters:DateTimeToStringConverter x:Key="DateTimeConverter" />
+        </ResourceDictionary>
+    </Window.Resources>
+
+    <DockPanel>
+        <Menu DockPanel.Dock="Top">
+            <MenuItem Header="{StaticResource File}">
+                <MenuItem Header="{StaticResource File.New}" />
+                <MenuItem Header="{StaticResource File.Open}" />
+                <MenuItem Header="{StaticResource File.SaveAs}" />
+                <Separator />
+                <MenuItem Header="{StaticResource File.Exit}" />
+            </MenuItem>
+            <MenuItem Header="{StaticResource Help}">
+                <MenuItem Header="{StaticResource Help.About}" />
+            </MenuItem>
+        </Menu>
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="2*" />
+                <ColumnDefinition Width="1*" />
+            </Grid.ColumnDefinitions>
+
+ <!-- !!!!!!!!!!!!!!!!!! EDITOR SECTION !!!!!!!!!!!!!!!!!! -->
+
+            <GroupBox Grid.Column="0" Margin="5">
+                <GroupBox.Header>
+                    <StaticResource ResourceKey="Editor" />
+                </GroupBox.Header>
+                <DockPanel>
+                    <StackPanel Orientation="Horizontal" DockPanel.Dock="Top">
+                        <GroupBox Height="55" Width="320">
+                            <GroupBox.Header>
+                                <StaticResource ResourceKey="Editor.Filter" />
+                            </GroupBox.Header>
+                            
+                            <StackPanel Orientation="Horizontal">
+                                <Label>
+                                    <Label.Content><StaticResource ResourceKey="Editor.Filter.Month"/></Label.Content>
+                                </Label>
+                                
+                                <ComboBox Margin="5, 0, 5, 5" Height="20" Width="90" 
+                                          ItemsSource="{Binding ComboBoxItems}"
+                                          SelectedItem="{Binding SelectedComboBoxItem}"
+                                          SelectionChanged="ComboBoxSelectionChanged"/>
+                                <Label>
+                                    <Label.Content><StaticResource ResourceKey="Editor.Filter.Regex"/></Label.Content>
+                                </Label>
+                                <TextBox Margin="5, 0, 5, 5" Height="20" Width="85"/>
+                                
+                            </StackPanel>
+                        </GroupBox>
+                        <Button Margin="5, 10, 5, 5" Width="75" Height="25" Content="{StaticResource Editor.Filter.Clear}"/>
+                    </StackPanel>
+                    
+                    <StackPanel Orientation="Horizontal" Height="220">
+                        <!-- <GroupBox  Width="320"> -->
+                        
+                        <ListBox Width="320" ItemsSource="{Binding Namedays}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding DayMonth}"/>
+                                            <TextBlock FontSize="16" Text="{Binding Name}" Margin="0,0,5,0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        <!-- </GroupBox> -->
+                        
+                        <StackPanel Orientation="Vertical" >
+                            <Button Margin="0, 5, 0, 5" Width="75" Content="{StaticResource Editor.Add}"/>
+                            <Button Margin="0, 5, 0, 5" Width="75" Content="{StaticResource Editor.Edit}"/>
+                            <Button Margin="0, 5, 0, 5" Width="75" Content="{StaticResource Editor.Remove}"/>
+                            <Button Margin="5, 65, 5, 5" Width="75" Height="40">
+                                <TextBlock Text="{StaticResource Editor.CalendarShow}" TextWrapping="Wrap" TextAlignment="Center"/>
+                            </Button>
+                            <Label FontSize="11" Margin="5, 0, 0, 0">Count: 3 / 469</Label>
+                        </StackPanel>
+                    </StackPanel>
+                </DockPanel>
+                
+            </GroupBox>
+
+<!-- !!!!!!!!!!!!!!!!!! CALENDAR SECTION !!!!!!!!!!!!!!!!!! -->
+            <GroupBox Grid.Column="1" Margin="5">
+                <GroupBox.Header>
+                    <StaticResource ResourceKey="Calendar" />
+                </GroupBox.Header>
+                <StackPanel>
+                    <Button Width="80" Height="25" Click="TodayButtonListener" Content="{StaticResource Calendar.Today}" />
+                    <Calendar SelectedDate="{Binding SelectedDateTime, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedDatesChanged="CalendarSelectedListener" />
+                    <Label Content="{Binding SelectedDateTime, Mode=TwoWay, Converter={StaticResource DateTimeConverter}}" />
+                    
+                    <TextBox Height="60" Margin="5, 0, 5, 5" TextWrapping="Wrap" IsReadOnly="True"
+                             VerticalScrollBarVisibility="Auto"
+                             AcceptsReturn="True"
+                             Text="{Binding TextBoxContent}"/>
+                </StackPanel>
+            </GroupBox>
+        </Grid>
+    </DockPanel>
+
+</Window>

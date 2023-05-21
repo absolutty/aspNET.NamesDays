@@ -1,0 +1,29 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=System.Runtime">
+    
+    <system:String x:Key="File">File</system:String>
+    <system:String x:Key="File.New">New</system:String>
+    <system:String x:Key="File.Open">Open...</system:String>
+    <system:String x:Key="File.SaveAs">Save As...</system:String>
+    <system:String x:Key="File.Exit">Exit</system:String>
+    <system:String x:Key="Help">Help</system:String>
+    <system:String x:Key="Help.About">About...</system:String>
+
+    <system:String x:Key="Editor">Editor</system:String>
+    <system:String x:Key="Editor.Filter">Filter</system:String>
+    <system:String x:Key="Editor.Filter.Month">Month</system:String>
+    <system:String x:Key="Editor.Filter.Regex">Regex filter</system:String>
+    <system:String x:Key="Editor.Filter.Clear">Clear filter</system:String>
+    
+    <system:String x:Key="Editor.Add">Add...</system:String>
+    <system:String x:Key="Editor.Edit">Edit...</system:String>
+    <system:String x:Key="Editor.Remove">Remove</system:String>
+    <system:String x:Key="Editor.CalendarShow">Show on calendar</system:String>
+
+
+    <system:String x:Key="Calendar">Calendar</system:String>
+    <system:String x:Key="Calendar.Today">Today</system:String>
+
+
+</ResourceDictionary>
