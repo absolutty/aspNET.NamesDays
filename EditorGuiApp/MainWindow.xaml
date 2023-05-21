@@ -52,12 +52,11 @@
                                 <Label>
                                     <Label.Content><StaticResource ResourceKey="Editor.Filter.Month"/></Label.Content>
                                 </Label>
-                                <ComboBox Margin="5, 0, 5, 5" Height="20" Width="90">
-                                    <ComboBoxItem>Januar</ComboBoxItem>
-                                    <ComboBoxItem IsSelected="True">september</ComboBoxItem>
-                                    <ComboBoxItem>september</ComboBoxItem>
-                                </ComboBox>
                                 
+                                <ComboBox Margin="5, 0, 5, 5" Height="20" Width="90" 
+                                          ItemsSource="{Binding ComboBoxItems}"
+                                          SelectedItem="{Binding SelectedComboBoxItem}"
+                                          SelectionChanged="ComboBoxSelectionChanged"/>
                                 <Label>
                                     <Label.Content><StaticResource ResourceKey="Editor.Filter.Regex"/></Label.Content>
                                 </Label>
@@ -69,8 +68,19 @@
                     </StackPanel>
                     
                     <StackPanel Orientation="Horizontal" Height="220">
-                        <GroupBox  Width="320">
-                        </GroupBox>
+                        <!-- <GroupBox  Width="320"> -->
+                        
+                        <ListBox Width="320" ItemsSource="{Binding Namedays}">
+                                <ListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        <StackPanel Orientation="Vertical">
+                                            <TextBlock Text="{Binding DayMonth}"/>
+                                            <TextBlock FontSize="16" Text="{Binding Name}" Margin="0,0,5,0"/>
+                                        </StackPanel>
+                                    </DataTemplate>
+                                </ListBox.ItemTemplate>
+                            </ListBox>
+                        <!-- </GroupBox> -->
                         
                         <StackPanel Orientation="Vertical" >
                             <Button Margin="0, 5, 0, 5" Width="75" Content="{StaticResource Editor.Add}"/>
